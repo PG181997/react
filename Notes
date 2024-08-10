@@ -1,0 +1,21 @@
+---> First episode
+    1. Emmit that is shift + button 1 + enter
+    2.What is CDN
+    3.what is crossorigin
+    4.DOM(Document Object Model)
+
+    5. what will React.createElement return?
+        Ans: It returns object
+        
+    6. While the object is rendering in DOM it will turn to HTML
+    7. What is crossorigin?
+
+    8. What will happen if html element is already in HTML file then we run react file?
+        Ans: The react file will replace HTML element in the page.
+
+    9. Can we use react only for a part of HTML script?
+        Ans: Yes, react can be used for specif part of HTML script as well. React can be used for small part of HTML script as well as used to build 
+             large scale web apps.
+
+
+---> Second Episode
