@@ -1,7 +1,11 @@
 ---> First  episode
     1. Emmit that is shift + button 1 + enter
-    2.What is CDN
-    3.what is crossorigin
+
+    2.What is CDN?
+        Ans: CDN(Content Delivery Network) that help deliver website content to users fast by using network of servers located all over the world.
+
+    3.what is crossorigin?
+        And: When a webpage tries to get information from another website/server this is called cross origin. OR When a webpage tries to access the resources from another webpage/servers, and there are specific rules to follow to ensure it happens safely
     4.DOM(Document Object Model)
 
     5. what will React.createElement return?
