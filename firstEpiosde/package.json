@@ -2,8 +2,8 @@
   "name": "firstepiosde",
   "version": "1.0.0",
   "scripts": {
-    "start" : "parcel index.html",
-    "build" : "parcel build index.html",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -29,7 +29,7 @@
     "react-dom": "^18.3.1",
     "reactdom": "^2.0.0"
   },
-  "browserslist":[
+  "browserslist": [
     "last 2 versions"
   ]
 }
