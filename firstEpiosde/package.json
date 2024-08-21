@@ -1,0 +1,33 @@
+{
+  "name": "firstepiosde",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PG181997/react.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "aditya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PG181997/react/issues"
+  },
+  "homepage": "https://github.com/PG181997/react#readme",
+  "description": "",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "reactdom": "^2.0.0"
+  },
+  "browserslist":[
+    "last 2 versions"
+  ]
+}
