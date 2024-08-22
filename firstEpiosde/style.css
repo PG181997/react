@@ -28,7 +28,6 @@
 .res-card{
     margin: 5px;
     width: 200px;
-    height: 390px;
     background: #f0f0f0;
 }
 
@@ -52,4 +51,9 @@
     display: flex;
     flex-wrap: wrap;
 
+}
+
+.filter-btn{
+    margin: 10px;
+    cursor: pointer;
 }
