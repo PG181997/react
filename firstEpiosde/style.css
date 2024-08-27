@@ -57,3 +57,31 @@
     margin: 10px;
     cursor: pointer;
 }
+
+.shimmer-card{
+    width: 200px;
+    height: 400px;
+    background-color: #f0f0f0;
+    margin: 20px;
+}
+
+.shimmer-container{
+    display: flex;
+}
+
+.login{
+    padding : 0 20px;
+    cursor: pointer;
+    height: 25px;
+
+}
+
+.filter{
+    display: flex;
+}
+
+
+.search{
+    padding : 0 20px;
+    height: 25px
+}
