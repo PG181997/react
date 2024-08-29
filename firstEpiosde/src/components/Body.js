@@ -5,7 +5,10 @@ import Shimmer from "./shimmer";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]); // state var
-  const [searchText, setSearchText] = useState(" "); // stare var
+  const [filteredListOfRestarunts, setFilteredListOfRestarunts] = useState([
+    listOfRestaurants,
+  ]);
+  const [searchText, setSearchText] = useState(""); // stare var
 
   // Whenever state var update, react triggers a reconcilation cycle(re-renders the component)
   useEffect(() => {
@@ -14,13 +17,15 @@ const Body = () => {
 
   const featchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
     console.log("json: ", json);
-    setListOfRestaurants(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    apiData =
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+    setListOfRestaurants(apiData);
+    setFilteredListOfRestarunts(apiData);
   };
 
   // conditional rendering
@@ -44,26 +49,15 @@ const Body = () => {
             className="search"
             onClick={() => {
               //filter the res and update in ui
-              //search text
-              console.log("SearchText", searchText);
-              console.log("listOfRestaurants: ", listOfRestaurants);
-              const filteredRes = listOfRestaurants.filter((res) => {
-                const match = res.info.name
+
+              const filteredRes = listOfRestaurants.filter((restaurant) =>
+                restaurant.info.name
                   .toLowerCase()
-                  .includes(searchText.toLowerCase());
-                console.log(
-                  "res.info.name: ",
-                  res.info.name.toLowerCase(),
-                  " - searchText: ",
-                  searchText.toLowerCase(),
-                  " - match: ",
-                  match
-                );
-                return match;
-              });
+                  .includes(searchText.toLowerCase())
+              );
               // console.log(searchText)
               console.log("filteredRes: ", filteredRes);
-              setListOfRestaurants(filteredRes);
+              setFilteredListOfRestarunts(filteredRes);
               console.log(listOfRestaurants);
             }}
           >
@@ -87,7 +81,7 @@ const Body = () => {
       <div className="res-container">
         {
           // not using key is not acceptable, using index as key is ok but using unique id is best.
-          listOfRestaurants.map((listOfRestaurants) => (
+          filteredListOfRestarunts.map((listOfRestaurants) => (
             <ResturantCard
               key={listOfRestaurants.info.id}
               resData={listOfRestaurants}
