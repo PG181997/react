@@ -10,7 +10,11 @@ const Body = () => {
   ]);
   const [searchText, setSearchText] = useState(""); // stare var
 
+  // useEffect (hookes)
   // Whenever state var update, react triggers a reconcilation cycle(re-renders the component)
+  // if no dependency array ==> useEffect is called on every render
+  // if dependency array is empty = [] ==> useEffect is called on initial render(only once)
+  // if dependency array is [btnNameReact] ==> use effect is called after everytime [btnNameReact] changes
   useEffect(() => {
     featchData();
   }, []);
@@ -19,17 +23,19 @@ const Body = () => {
     const data = await fetch(
       "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
+    
     const json = await data.json();
-    console.log("json: ", json);
+    // console.log("json: ", json);
     apiData =
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
+      console.log('apiData: ', apiData)
     setListOfRestaurants(apiData);
     setFilteredListOfRestarunts(apiData);
   };
 
   // conditional rendering
-
+  console.log("listOfRestaurants: ", listOfRestaurants);
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -56,9 +62,9 @@ const Body = () => {
                   .includes(searchText.toLowerCase())
               );
               // console.log(searchText)
-              console.log("filteredRes: ", filteredRes);
+              // console.log("filteredRes: ", filteredRes);
               setFilteredListOfRestarunts(filteredRes);
-              console.log(listOfRestaurants);
+              // console.log(listOfRestaurants);
             }}
           >
             Search
@@ -71,8 +77,8 @@ const Body = () => {
             (newListOfRestaurants = listOfRestaurants.filter(
               (res) => res.info.avgRating > 4.5
             )),
-              console.log(newListOfRestaurants);
-            setListOfRestaurants(newListOfRestaurants);
+              // console.log(newListOfRestaurants);
+              setListOfRestaurants(newListOfRestaurants);
           }}
         >
           Top Rated Resturents
