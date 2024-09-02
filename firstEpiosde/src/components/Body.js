@@ -21,15 +21,15 @@ const Body = () => {
 
   const featchData = async () => {
     const data = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.96340&lng=77.58550&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
-    
+
     const json = await data.json();
     // console.log("json: ", json);
     apiData =
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
-      console.log('apiData: ', apiData)
+    console.log("apiData: ", apiData);
     setListOfRestaurants(apiData);
     setFilteredListOfRestarunts(apiData);
   };
